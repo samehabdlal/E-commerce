@@ -1,0 +1,74 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row">
+    <div
+      class="col-md-12"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      *ngIf="product().length > 0"
+    >
+      <h2 class="float-start">
+        Featured <b>{{ titel() }}</b>
+      </h2>
+      <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="row">
+              <swiper-container
+                slides-per-view="3"
+                class="mySwiper"
+                autoplay-delay="2000"
+                pagination="true"
+                pagination-clickable="true"
+                space-between="30"
+              >
+                <swiper-slide *ngFor="let item of product()">
+                  <div class="thumb-wrapper" 
+                  [routerLink]="['/product/' + item.id]"
+                  >
+                    <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                    <div class="img-box">
+                      <img [src]="item?.image" class="img-faild" alt="" />
+                    </div>
+                    <div class="thumb-content">
+                      <h3
+                        class="title-clamp"
+                      >
+                        {{ item.title }}
+                      </h3>
+                      <p
+                      class="description"
+                    >
+                      {{ item.description }}
+                    </p>
+                      <div class="star-rating">
+                        <ul class="list-inline">
+                          <li class="list-inline-item">
+                            <i class="fa fa-star"></i>
+                          </li>
+                          <li class="list-inline-item">
+                            <i class="fa fa-star"></i>
+                          </li>
+                          <li class="list-inline-item">
+                            <i class="fa fa-star"></i>
+                          </li>
+                          <li class="list-inline-item">
+                            <i class="fa fa-star-o"></i>
+                          </li>
+                        </ul>
+                      </div>
+                      <p class="item-price">
+                        <b>${{ item.price }}</b>
+                      </p>
+                    </div>
+                  </div>
+                </swiper-slide>
+              </swiper-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loading-product *ngIf="product().length == 0"></app-loading-product>

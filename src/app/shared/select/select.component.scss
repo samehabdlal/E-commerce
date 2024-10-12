@@ -1,0 +1,13 @@
+.form-select{
+    width: 20%;
+    margin-left: 10px !important;
+  background-color: none;
+  }
+  @media(max-width:789px){
+    .form-select{
+      width: 50%;
+      text-align: center;
+      margin-left: 10px !important;
+    background-color: none;
+    }
+  }

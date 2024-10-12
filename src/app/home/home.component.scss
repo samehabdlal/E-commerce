@@ -1,0 +1,198 @@
+
+.editcard{
+    padding-top: 10% !important ;
+    padding-left: 8% !important;
+}
+.details{
+  display: flex;
+  margin-top:100px !important ;
+  text-align: center;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+  i{
+    font-size: 80px;
+    filter: drop-shadow(0 0 7px  rgb(165, 165, 165));
+    color:  #008080;
+  }
+  .titel{
+    color: #252525;
+    margin: 20px !important;
+    font-size: 30px;
+  }
+}
+
+.jewelry{
+  color: #008080;
+filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.356));
+}
+img{
+  width: 200px;
+  z-index: -1;
+  filter: drop-shadow(4px 4px 5px black );
+}
+.img-faild{
+  width: 100px !important;
+  height: 100px !important;
+  z-index: 1000 !important;
+  margin: auto;
+  filter: none !important;
+}
+h1{
+    font-style: italic;
+    font-weight: 900;
+    padding: 0 !important;
+    font-size: 50px;
+    color: white;
+}
+p{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 25px;
+    color: rgb(201, 201, 201);
+}
+@media(max-width:798px){
+.swep{
+  width: 100%  !important;
+  height: 50vh  !important;
+  background-repeat: round;
+  background-size: auto;
+  border-radius: 10px;
+}
+img{
+  width: 120px;
+  z-index: -1;
+  filter: drop-shadow(4px 4px 5px black );
+}
+.card {
+  width: 120px !important;
+  padding: 1rem;
+  border: none !important;
+}
+}
+// btn
+/* From Uiverse.io by Gaurav-WebDev */ 
+.button {
+    height: 50px;
+    width: 200px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .button:hover {
+    box-shadow: .5px .5px 150px #252525;
+  }
+  
+  .type1::after {
+    content: "Shop now";
+    height: 50px;
+    width: 200px;
+    background-color: #008080;
+    color: #fff;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(50px);
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type1::before {
+    content: "Hover Me";
+    height: 50px;
+    width: 200px;
+    background-color: #fff;
+    color: #008080;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translateY(0px) scale(1.2);
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .type1:hover::after {
+    transform: translateY(0) scale(1.2);
+  }
+  
+  .type1:hover::before {
+    transform: translateY(-50px) scale(0) rotate(120deg);
+  }
+  
+  .card__skeleton {
+    background-image: linear-gradient(
+          90deg,
+          #ccc 0px,
+          rgb(229 229 229 / 63%) 40px,
+          #ccc 80px
+      );
+      height: 63vh;
+      width: 100%;
+    background-size: 100vh;
+    background-position: 100% 100%;
+    border-radius: 10px;
+    animation: shimmer 1.5s infinite;
+  }
+  .card__description {
+    height: 100vh;
+  }
+  
+  // loading
+  /* From Uiverse.io by vk-uiux */ 
+.card {
+  width: 18rem;
+  padding: 1rem;
+  text-align: center;
+  border: none !important;
+}
+
+.card__skeleton {
+  background-image: linear-gradient(
+		90deg,
+		#ccc 0px,
+		rgb(229 229 229 / 90%) 40px,
+		#ccc 80px
+	);
+  background-size: 300%;
+  background-position: 100% 0;
+  border-radius: inherit;
+  animation: shimmer 1.5s infinite;
+}
+
+.card__title {
+  height: 15px;
+  margin-bottom: 15px;
+}
+
+.card__description {
+  height: 100px;
+}
+
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.edits{
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+}

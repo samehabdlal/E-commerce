@@ -1,0 +1,91 @@
+<div class="container">
+  <div *ngIf="success" class="row">
+    <hr />
+    <hr />
+    <hr />
+    <div class="">
+      <h1 class="titel">shopping cart</h1>
+      <h3  *ngIf="Client=='user'">
+        You have <span class="text-danger">{{ cartproducts().length }}</span
+        >item in your cart
+      </h3>
+    </div>
+    <button
+      *ngIf="Client === 'user'"
+      class="clearcart btn btn-danger w-25"
+      (click)="clearshoppincart()"
+    >
+      ClerShoppingCart
+    </button>
+    <h2></h2>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">num</th>
+            <th scope="col" *ngIf="Client === 'user'">img</th>
+            <th scope="col" *ngIf="Client === 'admin'" class="text-center">date</th>
+            <th scope="col" *ngIf="Client === 'user'">name</th>
+            <th scope="col" *ngIf="Client === 'user'">price</th>
+            <th scope="col"><p class="text-center m-0 p-0">Quintite</p></th>
+            <th scope="col" *ngIf="Client === 'user'">total</th>
+            <th scope="col" *ngIf="Client=='user'">-</th>
+          </tr>
+        </thead>
+        <tbody>
+          @if (Client==='admin') {
+          <tr *ngFor="let item of allcarts; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td class="text-center" *ngIf="Client === 'admin'">
+              {{ item.date | date :'shortDate' }}
+            </td>
+            <td class="text-center">
+              <span *ngIf="Client === 'admin'">{{ item.products.length }}</span>
+            </td>
+          </tr>
+          }
+           @if (Client==='user') {
+          <tr *ngFor="let item of cartproducts(); let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td><img [src]="item.item.image" alt="" /></td>
+            <td>{{ item.item.category }}</td>
+            <td class="text-success">${{ item.item.price }}</td>
+            <td>
+              <div class="Quintite" *ngIf="Client === 'user'">
+                <button class="btn btn-danger" (click)="minsquantity(i)">
+                  -
+                </button>
+                <input
+                  type="number"
+                  (change)="detectchange()"
+                  [(ngModel)]="item.quantity"
+                  class="form-control"
+                />
+                <button class="btn btn-info" (click)="addquantity(i)">+</button>
+              </div>
+            </td>
+            <td>{{ item.item.price * item.quantity }} l.f</td>
+            <td>
+              <button class="btn btn-danger" (click)="deletitem(i)">
+                Delet
+              </button>
+            </td>
+          </tr>
+          }
+          <tr></tr>
+        </tbody>
+
+        <h1 *ngIf="cartproducts().length == 0 || allcarts.length == 0" class="nocart text-center">
+          There are no items
+        </h1>
+      </table>
+    </div>
+    <div class="order">
+      <h4 *ngIf="Client=='user'"><span *ngIf="Client=='user'" class="total">total</span>:{{ total }} LE</h4>
+      <button *ngIf="Client=='user'"  class="btn btn-success" (click)="addcrat()">order now</button>
+    </div>
+  </div>
+  <div *ngIf="!success" class="alert alert-success card" role="alert">
+    <h4>The transaction was completed successfully and the payment was made</h4>
+  </div>
+</div>

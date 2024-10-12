@@ -1,0 +1,42 @@
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* لضمان أن الفيديو يبقى في الخلفية */
+  }
+  .cards{
+ /* From https://css.glass */
+/* From https://css.glass */
+background: rgba(255, 255, 255, 0.479);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.78);
+  }
+  @media(max-width:689px){
+    .cards{
+        /* From https://css.glass */
+       /* From https://css.glass */
+       background: rgba(255, 255, 255, 0.479);
+       border-radius: 16px;
+       box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+       backdrop-filter: blur(20px);
+       -webkit-backdrop-filter: blur(20px);
+       border: 1px solid rgba(255, 255, 255, 0.78);
+         }
+  }
+  .video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+  

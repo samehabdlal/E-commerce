@@ -1,0 +1,35 @@
+ <div class="navbar  " *ngIf="vew">
+    <div>
+     <img class="logo"src="imges/—Pngtree—e-letter logo ecommerce shop store_7265997.png" alt="">
+    </div>
+    <div class="links" *ngIf="close"
+    data-aos="fade-right"
+    data-aos-duration="500"
+   >
+   <div class="dropdown" *ngIf="auth.CurrentUser()">
+    <button   class="btn btn-info dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      {{auth.CurrentUser()?.name}}
+    </button>
+    <ul class="dropdown-menu">
+      <li ><a class="dropdown-item text-center"> <img class="avatar" src="imges/download.png" alt=""></a></li>
+      <li ><a class="dropdown-item text-center">{{auth.CurrentUser()?.name}}</a></li>
+      <li ><a class="dropdown-item " (click)="Onlogout()" >logout<i class="fa-solid fa-right-to-bracket"></i></a></li>
+    </ul>
+  </div>
+        <a class="menu__link " routerLink="/home"  routerLinkActive="active">Home</a>
+        <a class="menu__link " routerLink="/product"  routerLinkActive="active"  *ngIf="auth.CurrentUser()" >Allproduct</a>
+        <a class="menu__link " *ngIf="Client =='user' && auth.CurrentUser()" routerLink="/favorite"  routerLinkActive="active">favorite</a>
+        <a  *ngIf="auth.CurrentUser()" class="nav-link menu__link" routerLink="/cart"  routerLinkActive="active" ><i class="fa-solid fa-cart-shopping"><span *ngIf="Client==='user'" class="badge">{{cartservice.count()}}</span></i></a>
+    </div>
+<!-- close -->
+<div class="close x"*ngIf="!close"  data-aos="flip-down" (click)="toggleNavbars()" >
+  <span class="navbar-toggler-icon "></span>
+  </div>
+  <div class="close x" data-aos="flip-down" (click)="toggclosenavbar()" *ngIf="close"  >
+    <i class="fa-solid fa-x "  ></i>
+    </div>
+<!-- close -->
+</div>
+<div class="card__skeleton" *ngIf="!vew">
+    <ngx-skeleton-loader></ngx-skeleton-loader>
+  </div>

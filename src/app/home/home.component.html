@@ -1,0 +1,106 @@
+<br />
+<swiper-container
+  *ngIf="!vew"
+  pagination="true"
+  space-between="30"
+  class="mt-5"
+  autoplay-delay="2500"
+  pagination-clickable="true"
+>
+  <!-- slide 1 -->
+  <swiper-slide>
+    <div
+      class="swep"
+      style="
+        background-image: url('imges/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg');
+        background-repeat:no-repeat;
+        background-size:contain;
+        width: 100% !important;
+        height: 63vh;
+        border-radius: 10px;
+      "
+    >
+      <!-- card  -->
+      <div class="editcard">
+        <h1 class="jewelry">jewelry</h1>
+        <p>We have the best jewelry with the best quality</p>
+        <button class="button type1"  [routerLink]="['/product/'+7]"></button>
+      </div>
+    </div>
+  </swiper-slide>
+  <!-- slide 2 -->
+  <swiper-slide>
+    <div
+      class="swep"
+      style="
+        background-image: url('imges/81QpkIctqPL._AC_SX679_.jpg');
+        width: 100%;
+        height: 63vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border-radius: 10px;
+      "
+    >
+      <!-- card  -->
+      <div class="editcard">
+        <h1>Display screens</h1>
+        <p>We have the best Display screenswith the best quality</p>
+        <button class="button type1" [routerLink]="['/product/'+13]"></button>
+      </div>
+    </div>
+  </swiper-slide>
+  <!-- slide 3 -->
+  <swiper-slide>
+    <div
+      class="swep"
+      style="
+        background-image: url('imges/61pHAEJ4NML._AC_UX679_.jpg');
+        width: 100%;
+        height: 63vh;
+        background-repeat: no-repeat;
+        background-size: contain;
+        border-radius: 10px;
+      "
+    >
+      <!-- card -->
+      <div class="editcard">
+        <h1>Teshert</h1>
+        <p>We have the best Camera lenses with the best quality</p>
+        <button class="button type1" [routerLink]="['/product/'+20]"></button>
+      </div>
+    </div>
+  </swiper-slide>
+  <!-- 3 -->
+</swiper-container>
+<div class="card__skeleton" *ngIf="vew">
+  <ngx-skeleton-loader></ngx-skeleton-loader>
+</div>
+
+<!--cards  -->
+<div class="container" data-aos="fade-up" data-aos-duration="3000">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let item of details">
+         <div class="details">
+          <i [class]="item.icon"></i>
+          <h1 class="titel">{{item.titel}}</h1>
+          <p>{{item.Description}}</p>
+         </div>
+    </div>
+  </div>
+</div>
+<!-- loading -->
+<div class="container mt-2" *ngIf="vew">
+  <div class="row">
+    <div class="col-md-4" >
+      <div class="card">
+        <div class="card__skeleton card__title"></div>
+        <div class="card__skeleton card__description"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+ <app-product-filter [name]="'jewelery'" titel="'jewelery'"></app-product-filter>
+ <app-product-filter [name]="clothing"  titel="'clothing'"></app-product-filter>
+ <app-product-filter [name]="'electronics'" titel="'electronics'"></app-product-filter>

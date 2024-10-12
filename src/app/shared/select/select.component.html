@@ -1,0 +1,4 @@
+<select class="form-select" (change)="detectchanges($event)"  aria-label="Default select example">
+  <option class="options"   value="all" selected>All </option>
+  <option value="{{option}}" class="options" *ngFor="let option of data()">{{option}}</option>
+</select>

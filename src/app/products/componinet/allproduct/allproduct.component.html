@@ -1,0 +1,91 @@
+<br><br><br><br><br>
+<!-- Large button groups (default and split) -->
+    <app-select (product)="getfiterdata($event)" (titel)="titel=$event"></app-select>
+  <div  class="container mt-5"   *ngIf="admin=='user'&& servec.vew ">
+    <div class="row" *ngIf="prodect()!==null " >
+      <div class="col-xs-6 gap-2 mb-2 col-sm-6 col-md-4 col-lg-4 col-lg-4 col-xl-4  " *ngFor="let products of prodect() ; let i=index">
+     <app-product [product]="products" [i]="i" (addproduct)="addtocart($event)"></app-product>
+      </div>
+    </div>
+</div>
+<!-- loading -->
+<app-loading-product  *ngIf="prodect().length==0"></app-loading-product>
+<!-- creat product is admin  -->
+<button *ngIf="admin=='admin'" type="button" class="btn btn-info btnaddproduct" data-bs-toggle="modal" data-bs-target="#exampleModal">
+ add product
+</button>
+<div class="container" *ngIf="admin=='admin'">
+  <div class="row">
+    <div class="col-md-12 table-responsive">
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th scope="col">item</th>
+            <th scope="col">imge</th>
+            <th scope="col">name</th>
+            <th scope="col">description</th>
+            <th scope="col">price</th>
+            <th scope="col">update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of prodect() ">
+            <th scope="row">{{item.id}}</th>
+            <td><img class="imageproduct" [src]="item.image" alt=""></td>
+            <td class="title">{{item.title}}</td>
+            <td class="description">{{item.description}}</td>
+            <td class="price">{{item.price}}</td>
+            <td>
+              <button *ngIf="admin=='admin'" (click)="Onupdate(item)" type="button" class="btn btn-warning " data-bs-toggle="modal" data-bs-target="#exampleModal">
+               update
+               </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- modal creat product -->
+<div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="closemodal()" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="creatproduct">
+      <div class="row">
+          <div class="col-md-4">
+            <label for="exampleInputEmail1" class="form-label">titel</label>
+            <input type="text"  formControlName="title" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          </div>
+          <div class="col-md-4">
+            <label for="exampleInputPassword1" class="form-label">catgories</label>
+            <app-select (product)="getfiterdata($event)" (titel)="titel=$event"></app-select>
+          </div>
+          <div class="col-md-4">
+            <label for="exampleInputPassword1" class="form-label"  >price</label>
+            <input type="number" formControlName="price" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="col-md-4">
+            <label for="exampleInputPassword1" class="form-label">image</label>
+            <input (change)="getimgpath($event)" type="file" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="col-md-8">
+            <label for="exampleFormControlTextarea1">Example textarea</label>
+            <textarea formControlName="description"  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          </div>
+       </div>
+       <img [src]="hase46" alt="" class="image64">
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closemodal()">Close</button>
+        <button type="button" class="btn btn-primary" (click)="addproduct()"  [disabled]="creatproduct.invalid">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
